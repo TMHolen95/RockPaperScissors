@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:gravity="center"
+    android:orientation="vertical"
+
+    tools:context=".MainActivity"
+    android:animateLayoutChanges="true">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_main_victorySection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toTopOf="@id/linearLayout_main_computerTextContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView_main_winState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Did you win?"
+            android:textSize="30sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="New Game"
+            android:layout_margin="8dp"
+            android:visibility="visible"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_main_computerTextContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toTopOf="@id/linearLayout_main_playerTextContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_victorySection"
+
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Computer's Choice:"
+            android:textAlignment="center"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Waiting..."
+            android:textAlignment="center"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_main_playerTextContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toTopOf="@id/linearLayout_main_playerActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_main_computerTextContainer"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Your Choice:"
+            android:textAlignment="center"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/textView_main_myChoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Make a Pick"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_main_playerActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_playerTextContainer"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/textView_main_rockChosen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="8dp"
+            android:text="Rock" />
+
+        <Button
+            android:id="@+id/textView_main_paperChosen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="8dp"
+            android:text="Paper" />
+
+        <Button
+            android:id="@+id/textView_main_scissorsChosen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="8dp"
+            android:text="Scissors" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
