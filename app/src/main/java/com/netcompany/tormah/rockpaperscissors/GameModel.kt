@@ -27,7 +27,10 @@ class GameModel{
     }
 
     fun calculateWinner(playerAction: GameAction): GameData {
+
         gameData.opponentAction = randomizeOpponentAction()
+        gameData.playerAction = playerAction
+
         gameData.gameState = when(playerAction){
             GameAction.Paper -> paperChosen(gameData.opponentAction)
             GameAction.Rock -> rockChosen(gameData.opponentAction)
@@ -58,10 +61,5 @@ class GameModel{
             GameAction.Paper -> GameState.Draw
             GameAction.Scissors -> GameState.Loss
         }
-    }
-
-    fun newGame(): GameData {
-        gameData = GameData()
-        return gameData
     }
 }

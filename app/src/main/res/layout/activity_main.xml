@@ -19,8 +19,8 @@
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout_main_computerTextContainer"
 
+        app:layout_constraintBottom_toTopOf="@id/linearLayout_main_computerTextContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,15 +36,6 @@
 
             android:text="Did you win?"
             android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/button_main_newGame"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="New Game"
-            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -87,10 +78,10 @@
         android:layout_height="wrap_content"
 
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout_main_playerActions"
+
+        app:layout_constraintBottom_toTopOf="@id/textView_main_playAgainInfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_main_computerTextContainer">
 
         <TextView
@@ -113,6 +104,20 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView_main_playAgainInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_playerTextContainer"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout_main_playerActions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:text="Click a button to play again!"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:textSize="14sp" />
 
     <LinearLayout
         android:id="@+id/linearLayout_main_playerActions"
@@ -121,11 +126,11 @@
 
         android:gravity="center"
         android:orientation="horizontal"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_playerTextContainer">
+        app:layout_constraintTop_toBottomOf="@id/textView_main_playAgainInfo">
 
         <Button
             android:id="@+id/button_main_rockChosen"
