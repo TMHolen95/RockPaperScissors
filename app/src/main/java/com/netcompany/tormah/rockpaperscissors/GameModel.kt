@@ -13,22 +13,27 @@ enum class GameAction{
     Scissors
 }
 
-class GameModel{
+class GameData{
     var gameState = GameState.PlayerChoosing
     lateinit var playerAction: GameAction
     lateinit var opponentAction: GameAction
+}
+
+class GameModel{
+    var gameData = GameData()
 
     private fun randomizeOpponentAction(): GameAction {
         return GameAction.values().random()
     }
 
-    fun calculateWinner(playerAction: GameAction): GameState {
-        opponentAction = randomizeOpponentAction()
-        return when(playerAction){
-            GameAction.Paper -> paperChosen(opponentAction)
-            GameAction.Rock -> rockChosen(opponentAction)
-            GameAction.Scissors -> scissorsChosen(opponentAction)
+    fun calculateWinner(playerAction: GameAction): GameData {
+        gameData.opponentAction = randomizeOpponentAction()
+        gameData.gameState = when(playerAction){
+            GameAction.Paper -> paperChosen(gameData.opponentAction)
+            GameAction.Rock -> rockChosen(gameData.opponentAction)
+            GameAction.Scissors -> scissorsChosen(gameData.opponentAction)
         }
+        return gameData
     }
 
     private fun scissorsChosen(opponentAction: GameAction): GameState {
@@ -53,5 +58,10 @@ class GameModel{
             GameAction.Paper -> GameState.Draw
             GameAction.Scissors -> GameState.Loss
         }
+    }
+
+    fun newGame(): GameData {
+        gameData = GameData()
+        return gameData
     }
 }
