@@ -5,42 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:animateLayoutChanges="true"
     android:gravity="center"
-    android:orientation="vertical"
 
-    tools:context=".MainActivity"
-    android:animateLayoutChanges="true">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout_main_victorySection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/linearLayout_main_computerTextContainer"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        android:visibility="visible"
-        android:orientation="vertical"
-        android:gravity="center">
-
+        <!-- TODO - Bonus task:
+        Extract the strings in the [android:text] attributes to res/strings.xml,
+        try to keep a good naming convention when extracting the strings
+        so you know what each string is used for. -->
         <TextView
             android:id="@+id/textView_main_winState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:text="Did you win?"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
         <Button
+            android:id="@+id/button_main_newGame"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:text="New Game"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:visibility="visible"
-            />
+            android:text="New Game"
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -49,29 +53,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/linearLayout_main_playerTextContainer"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_victorySection"
-
-        android:gravity="center"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_victorySection">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Computer's Choice:"
+            android:text="Opponent's Choice:"
             android:textAlignment="center"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/textView_main_opponentChoice"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
+            android:layout_height="wrap_content"
             android:text="Waiting..."
             android:textAlignment="center"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -81,12 +86,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/linearLayout_main_playerActions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_main_computerTextContainer"
 
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_main_computerTextContainer">
 
         <TextView
             android:layout_width="match_parent"
@@ -94,7 +99,7 @@
 
             android:text="Your Choice:"
             android:textAlignment="center"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView_main_myChoice"
@@ -114,34 +119,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_playerTextContainer"
 
-        android:gravity="center"
-        android:orientation="horizontal">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_main_playerTextContainer">
 
         <Button
-            android:id="@+id/textView_main_rockChosen"
+            android:id="@+id/button_main_rockChosen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Button"
 
             android:layout_margin="8dp"
             android:text="Rock" />
 
         <Button
-            android:id="@+id/textView_main_paperChosen"
+            android:id="@+id/button_main_paperChosen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Button"
 
             android:layout_margin="8dp"
             android:text="Paper" />
 
         <Button
-            android:id="@+id/textView_main_scissorsChosen"
+            android:id="@+id/button_main_scissorsChosen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Button"
 
             android:layout_margin="8dp"
             android:text="Scissors" />
