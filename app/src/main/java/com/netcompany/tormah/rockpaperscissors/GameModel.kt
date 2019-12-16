@@ -1,5 +1,6 @@
 package com.netcompany.tormah.rockpaperscissors
 
+// A enum for the different states of the game.
 enum class GameState{
     PlayerChoosing,
     Victory,
@@ -7,18 +8,21 @@ enum class GameState{
     Loss
 }
 
+// A enum for the user's possible game actions
 enum class GameAction{
     Rock,
     Paper,
     Scissors
 }
 
+// A class representing what has happened in a round, this should be sent back to the UI.
 class GameData{
     var gameState = GameState.PlayerChoosing
     lateinit var playerAction: GameAction
     lateinit var opponentAction: GameAction
 }
 
+// The model with the business logic of the game.
 class GameModel{
     var gameData = GameData()
 
