@@ -18,8 +18,8 @@ enum class GameAction{
 // A class representing what has happened in a round, this should be sent back to the UI.
 class GameData{
     var gameState = GameState.PlayerChoosing
-    lateinit var playerAction: GameAction
-    lateinit var opponentAction: GameAction
+    var playerAction: GameAction? = null
+    var opponentAction: GameAction? = null
 }
 
 // The model with the business logic of the game.
@@ -36,9 +36,9 @@ class GameModel{
         gameData.playerAction = playerAction
 
         gameData.gameState = when(playerAction){
-            GameAction.Paper -> paperChosen(gameData.opponentAction)
-            GameAction.Rock -> rockChosen(gameData.opponentAction)
-            GameAction.Scissors -> scissorsChosen(gameData.opponentAction)
+            GameAction.Paper -> paperChosen(gameData.opponentAction!!)
+            GameAction.Rock -> rockChosen(gameData.opponentAction!!)
+            GameAction.Scissors -> scissorsChosen(gameData.opponentAction!!)
         }
         return gameData
     }
