@@ -7,6 +7,8 @@ import android.view.View
 import android.view.animation.Animation
 import android.widget.TextView
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,11 +17,13 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    val viewModel = GameViewModel()
+    private lateinit var viewModel: GameViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        viewModel = ViewModelProviders.of(this)[GameViewModel::class.java]
 
         button_main_rockChosen.setOnClickListener { viewModel.onPlayerAction(GameAction.Rock) }
         button_main_paperChosen.setOnClickListener { viewModel.onPlayerAction(GameAction.Paper) }
@@ -28,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.gameData.observe(this, gameObserver)
     }
 
+    // The advantage of using a observer is that this listens for changes in the object it is
+    // observing automatically, f.ex anytime the gameData LiveData from the observer
     private var gameObserver = Observer<GameData> { value ->
         textView_main_myChoice.text = value.playerAction.toString()
         textView_main_opponentChoice.text = value.opponentAction.toString()
