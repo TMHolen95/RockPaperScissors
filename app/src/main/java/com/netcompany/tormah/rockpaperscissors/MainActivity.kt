@@ -3,24 +3,26 @@ package com.netcompany.tormah.rockpaperscissors
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    // Variables are declared like this in Kotlin, add the lateinit modifier if the variable has no
-    // initial value.
-    lateinit var myHandAction: TextView
-
-    // Values that doesn't change are declared like this:
-    private val tag = "Rock-Paper-Scissors"
+    // TODO: create a solution using a architectural pattern MVC, MVVM, etc...
+    //  There is a model and some enums in the GameModel.kt file.
+    //  Choose if you want to build upon this, or delete them and start fresh.
+    //  Create a file for the Controller or ViewModel depending on the architecture you choose.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // TODO: retrieve the views and assign them decent variable names, ex below:
-        myHandAction = textView_main_myChoice
+        // TODO: retrieve the views and update them with useful text ex below:
+        textView_main_myChoice.text = GameAction.Rock.toString()
+        // An example pof changing a views visibility
+        textView_main_playAgainInfo.visibility = View.INVISIBLE
+
 
     }
 
